@@ -9,14 +9,22 @@ import edu.eci.pdsw.examples.beans.CalculadorCuenta;
 import edu.eci.pdsw.examples.model.Orden;
 
 /**
- *
  * @author 2098325
  */
 public class CalculadorCuentaConPropina implements CalculadorCuenta {
-    int res=0;
+    
+    /**
+     * @pre Se cobra un valor adicional del 10%, si la cuenta supera los 15 mil pesos.
+     * @pos Retorna el total con el valor de la orden + la propina.
+     * @param o Recibe un objeto tipo orden.
+     * @return Retorna un entero con el costo de la orden.
+     * @throws ExcepcionManjeadorOrdenes Si ocurre algun error en la clase.
+    
+     */
     @Override
     public int calcularCosto(Orden o) {
-        return res;
+      
+        return 0;
         
     }
     

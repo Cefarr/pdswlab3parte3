@@ -14,6 +14,13 @@ import edu.eci.pdsw.examples.model.Plato;
  */
 public class VerificadorIvaEstandar implements VerificadorIVA{
 
+    /** 
+     * @pre Recibe un plato para obtener el iva.
+     * @pos Regresa un float con el valor del Iva.
+     * @param p Recibe un objeto tipo Plato.
+     * @return Returna un flotante con el valor exacto del precio con el iva
+     * @throws ExcepcionManjeadorOrdenes Si ocurre algun error en la clase.
+     */
     @Override
     public float obtenerPorcentajeIva(Plato p) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

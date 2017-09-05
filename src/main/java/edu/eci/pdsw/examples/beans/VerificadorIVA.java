@@ -15,7 +15,11 @@ import edu.eci.pdsw.examples.model.Plato;
  */
 public interface VerificadorIVA {
     
-    
+         /**
+          * Esta funcion sirve para calcular el porcentaje del Iva respecto a la factura consumida por su cliente.
+         * @param p Rcibe un parametro tipo plato
+         * 
+         */
     public float obtenerPorcentajeIva(Plato p );
     
 }
