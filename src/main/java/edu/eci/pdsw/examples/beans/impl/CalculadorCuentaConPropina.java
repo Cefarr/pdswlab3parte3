@@ -6,6 +6,7 @@
 package edu.eci.pdsw.examples.beans.impl;
 
 import edu.eci.pdsw.examples.beans.CalculadorCuenta;
+import edu.eci.pdsw.examples.model.ItemOrden;
 import edu.eci.pdsw.examples.model.Orden;
 
 /**
@@ -23,8 +24,14 @@ public class CalculadorCuentaConPropina implements CalculadorCuenta {
      */
     @Override
     public int calcularCosto(Orden o) {
-      
-        return 0;
+        int total=0;
+        for (ItemOrden p:o.getItemsOrden()){
+            total+=p.getPrecio();
+	}
+        if(total>15000){
+            total+=total*0.1;
+        }
+        return total;
         
     }
     

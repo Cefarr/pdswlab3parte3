@@ -22,7 +22,10 @@ public class VerificadorIVARegimen2013 implements VerificadorIVA {
      */
     @Override
     public float obtenerPorcentajeIva(Plato p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float total=(float) 0.0;
+        total=p.getPrecio();
+	total+=p.getPrecio()*0.29;
+        return total;
     }
     
 }

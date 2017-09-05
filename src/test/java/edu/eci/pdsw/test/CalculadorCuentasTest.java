@@ -74,25 +74,27 @@ public class CalculadorCuentasTest {
     @Test
     public void clasesEquivalenciaCE3() throws ExcepcionManejadorOrdenes{
         Orden o = new Orden();
-        o.agregarItemOrden(new Plato("pizza", 7500));
-        o.agregarItemOrden(new Bebida("pepsi 300ml", 3900,1000));
-        o.agregarItemOrden(new Plato("hamburguesa", 8000));
-        o.agregarItemOrden(new Bebida("sprite 300ml", 200,2000));
+        o.agregarItemOrden(new Plato("pizza", 01));
+        o.agregarItemOrden(new Plato("chuquitos", 10000));
+        o.agregarItemOrden(new Plato("hamburguesa", 3000));
+        o.agregarItemOrden(new Plato("lolitas 300ml", 2000));
+        
         CalculadorCuentaConIva prime=new CalculadorCuentaConIva();
         res=prime.calcularCosto(o);
-        assertEquals(19600, res);
+        assertEquals(19600, prime.calcularCosto(o));
         res=0;
     }    
     //Condiciones de frontera
     @Test
     public void CondicionFronteraCE2() throws ExcepcionManejadorOrdenes{
         Orden o = new Orden();
-        o.agregarItemOrden(new Plato("pizza", 01));
-        o.agregarItemOrden(new Bebida("pepsi 300ml", 10000,1000));
-        o.agregarItemOrden(new Plato("hamburguesa", 3000));
-        o.agregarItemOrden(new Bebida("sprite 300ml", 2000,2000));
+        o.agregarItemOrden(new Plato("pizza", 7500));
+        o.agregarItemOrden(new Bebida("pepsi 300ml", 3900,1000));
+        o.agregarItemOrden(new Plato("hamburguesa", 8000));
+        o.agregarItemOrden(new Bebida("sprite 300ml", 200,2000));
         CalculadorCuentaConIva prime=new CalculadorCuentaConIva();
         res=prime.calcularCosto(o);
+        System.out.println(res);
         assertEquals(16500, res);
     }
     @Test

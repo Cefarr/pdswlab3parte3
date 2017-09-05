@@ -6,6 +6,7 @@
 package edu.eci.pdsw.examples.beans.impl;
 
 import edu.eci.pdsw.examples.beans.VerificadorIVA;
+import edu.eci.pdsw.examples.model.ItemOrden;
 import edu.eci.pdsw.examples.model.Plato;
 
 /**
@@ -23,7 +24,9 @@ public class VerificadorIvaEstandar implements VerificadorIVA{
      */
     @Override
     public float obtenerPorcentajeIva(Plato p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float total=(float) p.getPrecio();
+	total+=total*0.19;
+        return total;
     }
     
 }

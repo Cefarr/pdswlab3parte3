@@ -6,7 +6,11 @@
 package edu.eci.pdsw.examples.beans.impl;
 
 import edu.eci.pdsw.examples.beans.CalculadorCuenta;
+import edu.eci.pdsw.examples.beans.VerificadorIVA;
+import edu.eci.pdsw.examples.model.ItemOrden;
 import edu.eci.pdsw.examples.model.Orden;
+import edu.eci.pdsw.examples.model.Plato;
+import edu.eci.pdsw.examples.model.Bebida;
 
 /**
  *
@@ -21,9 +25,32 @@ public class CalculadorCuentaConIva implements CalculadorCuenta {
      * @return Returna un entero con el costo total de la orden
      * @throws ExcepcionManjeadorOrdenes Si ocurre algun error en la clase.
      */
+    VerificadorIVA prim;
     @Override
     public int calcularCosto(Orden o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int tola1=0;
+       	int total=0;
+	for (ItemOrden p:o.getItemsOrden()){
+            String gaseosa=p.getNombre();
+            if(("pepsi"==gaseosa)||("cocacola"==gaseosa)||("sprite"==gaseosa)){
+                Bebida yu=(Bebida)p;
+                //total+=0;
+                if(yu.getCalorias()>1000){
+                    prim= new VerificadorIVARegimen2013();
+                    tola1=(int)prim.obtenerPorcentajeIva((Plato) p);
+                }else{
+                    prim=new VerificadorIvaEstandar();
+                    tola1=(int)prim.obtenerPorcentajeIva((Plato) p);            
+                }
+            }else{ 
+                prim=new VerificadorIvaEstandar();
+                tola1=(int)prim.obtenerPorcentajeIva((Plato) p);
+            }
+
+            total+=p.getPrecio()+tola1;
+	}
+        return (int) total;
     }
     
 }
